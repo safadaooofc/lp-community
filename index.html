@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LP Modz | Sistemas de Modding & Account Recovery</title>
+    <meta name="description" content="LP Modz - A maior infraestrutura de modificação e recuperação de contas para GTA V. Segurança militar, performance máxima e integridade garantida.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background GTA Slideshow -->
+    <div class="gta-background-slideshow">
+        <div class="slide active" style="background-image: url('imagens/fotosgta/fotogta.jpg');"></div>
+        <div class="slide" style="background-image: url('imagens/fotosgta/fotocidadegta.jpg');"></div>
+        <div class="slide" style="background-image: url('imagens/fotosgta/fotopalcaviweoodgta.jpg');"></div>
+        <div class="slideshow-overlay"></div>
+    </div>
+
+    <!-- Top Fixed Header -->
+    <header class="main-header" id="header">
+        <div class="header-container">
+            <!-- Store Logo SVG (Inline, centered angular letters, crown removed) -->
+            <a href="#/produtos" class="header-logo-link">
+                <div class="header-logo">
+                    <svg class="lp-logo-svg" viewBox="0 0 100 100" width="38" height="38">
+                        <circle cx="50" cy="50" r="38" fill="#121417" stroke="#39ff14" stroke-width="4" />
+                        <!-- Sharp angular L (Green) -->
+                        <path d="M 28,36 L 42,36 L 42,58 L 56,58 L 56,66 L 28,66 Z" fill="#39ff14" />
+                        <!-- Sharp angular P (Grey) -->
+                        <path d="M 45,36 L 68,36 Q 76,36 76,46 Q 76,56 68,56 L 55,56 L 55,66 L 45,66 Z M 55,42 L 55,50 L 66,50 Q 69,50 69,46 Q 69,42 66,42 Z" fill="#c5c6c7" />
+                    </svg>
+                    <span class="logo-text-header">LP <span class="highlight">MODZ</span></span>
+                </div>
+            </a>
+
+            <!-- Central Navigation Tabs -->
+            <nav class="navigation-tabs" id="main-nav">
+                <a href="#/produtos" class="tab-link active" data-tab="produtos">
+                    <i class="fa-solid fa-terminal"></i> Módulos
+                </a>
+                <a href="#/contas" class="tab-link" data-tab="contas">
+                    <i class="fa-solid fa-server"></i> Servidores
+                </a>
+                <a href="#/feedbacks" class="tab-link" data-tab="feedbacks">
+                    <i class="fa-solid fa-shield-halved"></i> Auditoria
+                </a>
+                <a href="#/parceiro" class="tab-link" data-tab="parceiro">
+                    <i class="fa-solid fa-network-wired"></i> Afiliados
+                </a>
+                <a href="#/termos" class="tab-link" data-tab="termos">
+                    <i class="fa-solid fa-scale-balanced"></i> SLA / Termos
+                </a>
+                <a href="#/discord" class="tab-link" data-tab="discord">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </nav>
+
+            <!-- User Auth Bar (Right) -->
+            <div class="user-auth-bar" id="user-auth-panel">
+                <a href="#/login" class="btn-login-header">
+                    <i class="fa-solid fa-user"></i> Acessar Painel
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Landing Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <!-- Large Logo (No Crown) -->
+            <div class="logo-container">
+                <svg class="lp-logo-large" viewBox="0 0 100 100" width="100" height="100">
+                    <circle cx="50" cy="50" r="38" fill="#121417" stroke="#39ff14" stroke-width="4" />
+                    <path d="M 28,36 L 42,36 L 42,58 L 56,58 L 56,66 L 28,66 Z" fill="#39ff14" />
+                    <path d="M 45,36 L 68,36 Q 76,36 76,46 Q 76,56 68,56 L 55,56 L 55,66 L 45,66 Z M 55,42 L 55,50 L 66,50 Q 69,50 69,46 Q 69,42 66,42 Z" fill="#c5c6c7" />
+                </svg>
+                <h1 class="logo-text">LP <span class="highlight">MODZ</span></h1>
+            </div>
+            
+            <p class="slogan-text">Engenharia avançada de modificação. O controle absoluto do seu progresso e ativos no GTA V.</p>
+        </div>
+        
+        <!-- Scroll Indicator Arrow -->
+        <div class="scroll-indicator" id="scroll-arrow">
+            <span>Explorar Infraestrutura</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="content-wrapper" id="content-area">
+        
+        <!-- ================= PRODUCTS TAB ================= -->
+        <section id="view-produtos" class="page-view active">
+            <div class="products-container">
+                
+                <!-- Sidebar Filters (Left) -->
+                <aside class="sidebar-filters">
+                    <div class="filter-header">
+                        <h3><i class="fa-solid fa-sliders"></i> Filtros</h3>
+                        <button id="btn-clear-filters" class="btn-clear"><i class="fa-solid fa-rotate-left"></i> Limpar</button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="search-input">Buscar Módulo</label>
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="search-input" placeholder="Ex: Injeção, Rank...">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sort-select">Ordenar por</label>
+                        <div class="select-box">
+                            <select id="sort-select">
+                                <option value="relevancia">Relevância</option>
+                                <option value="preco-menor">Menor preço</option>
+                                <option value="preco-maior">Maior preço</option>
+                                <option value="nome-az">Nome A-Z</option>
+                                <option value="nome-za">Nome Z-A</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Faixa de Custo</label>
+                        <div class="price-slider-container">
+                            <div class="slider-track-wrapper">
+                                <input type="range" id="price-slider" min="0" max="100" value="100" class="custom-slider">
+                            </div>
+                            <div class="price-inputs">
+                                <div class="price-input-box">
+                                    <span>Mín (R$)</span>
+                                    <input type="number" id="price-min" min="0" value="0">
+                                </div>
+                                <div class="price-input-box">
+                                    <span>Máx (R$)</span>
+                                    <input type="number" id="price-max" min="0" value="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group switch-group">
+                        <label class="switch-label" for="show-out-of-stock">
+                            <span>Exibir inativos</span>
+                            <div class="switch">
+                                <input type="checkbox" id="show-out-of-stock">
+                                <span class="slider-switch round"></span>
+                            </div>
+                        </label>
+                    </div>
+                </aside>
+
+                <!-- Products Catalog & Packages (Right) -->
+                <div class="catalog-area">
+                    
+                    <!-- Packages Section (Top) -->
+                    <div class="packages-section">
+                        <h2 class="section-title"><i class="fa-solid fa-box-open"></i> Módulos Integrados Premium</h2>
+                        <div class="packages-grid" id="packages-container">
+                            <!-- Loaded dynamically via JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Individual Items Section (Bottom) -->
+                    <div class="items-section">
+                        <h2 class="section-title"><i class="fa-solid fa-terminal"></i> Injeções de Ativos & Recovery</h2>
+                        <div class="items-grid" id="items-container">
+                            <!-- Loaded dynamically via JS -->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ACCOUNTS TAB ================= -->
+        <section id="view-contas" class="page-view">
+            <div class="tab-header-title">
+                <h2><i class="fa-solid fa-server"></i> Servidores & Contas Otimizadas (Recovery)</h2>
+                <p>Estruturas estáveis de alta integridade, livre de sanções e prontas para implantação imediata.</p>
+            </div>
+            
+            <div class="accounts-grid">
+                <!-- Account 1 -->
+                <div class="account-card">
+                    <div class="account-platform"><i class="fa-brands fa-playstation"></i> PS4 / PS5</div>
+                    <img src="imagens/fotosgta/fotogta.jpg" alt="Conta Premium" class="account-img">
+                    <div class="account-info">
+                        <h3>Módulo Inicial Estabilizado</h3>
+                        <div class="account-stats">
+                            <span><i class="fa-solid fa-money-bill-wave"></i> $50 Milhões</span>
+                            <span><i class="fa-solid fa-arrow-up-right-dots"></i> Rank 120</span>
+                        </div>
+                        <p class="account-desc">Acesso completo e exclusivo à infraestrutura. Modificação de garagem básica com 5 unidades otimizadas e arsenal liberado.</p>
+                        <div class="account-footer">
+                            <span class="account-price">R$ 35,00</span>
+                            <button class="btn-buy" onclick="buyAccountDirect('Módulo Inicial Estabilizado (PS4/PS5)', 35.00)">Adquirir Módulo</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Account 2 -->
+                <div class="account-card">
+                    <div class="account-platform"><i class="fa-brands fa-windows"></i> PC (Social Club/Steam)</div>
+                    <img src="imagens/fotosgta/fotocidadegta.jpg" alt="Conta Premium" class="account-img">
+                    <div class="account-info">
+                        <h3>Módulo Corporativo Império</h3>
+                        <div class="account-stats">
+                            <span><i class="fa-solid fa-money-bill-wave"></i> $500 Milhões</span>
+                            <span><i class="fa-solid fa-arrow-up-right-dots"></i> Rank 500</span>
+                        </div>
+                        <p class="account-desc">Unlock All completo de ativos. Garagens preenchidas com veículos raros modificados e trajes técnicos customizados de alta densidade.</p>
+                        <div class="account-footer">
+                            <span class="account-price">R$ 75,00</span>
+                            <button class="btn-buy" onclick="buyAccountDirect('Módulo Corporativo Império (PC)', 75.00)">Adquirir Módulo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account 3 -->
+                <div class="account-card">
+                    <div class="account-platform"><i class="fa-brands fa-xbox"></i> Xbox One / Series</div>
+                    <img src="imagens/fotosgta/fotopalcaviweoodgta.jpg" alt="Conta Premium" class="account-img">
+                    <div class="account-info">
+                        <h3>Infraestrutura Suprema</h3>
+                        <div class="account-stats">
+                            <span><i class="fa-solid fa-money-bill-wave"></i> $1.5 Bilhão</span>
+                            <span><i class="fa-solid fa-arrow-up-right-dots"></i> Rank 1000</span>
+                        </div>
+                        <p class="account-desc">Conta de integridade total com Bypass estendido ativo. Rápida migração de dados seguros e garantia vitalícia de integridade de dados.</p>
+                        <div class="account-footer">
+                            <span class="account-price">R$ 120,00</span>
+                            <button class="btn-buy" onclick="buyAccountDirect('Infraestrutura Suprema (Xbox)', 120.00)">Adquirir Módulo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FEEDBACKS TAB ================= -->
+        <section id="view-feedbacks" class="page-view">
+            <div class="tab-header-title">
+                <h2><i class="fa-solid fa-shield-halved"></i> Registros de Auditoria & Feedback</h2>
+                <p>Relatórios públicos de entrega garantida e monitoramento de satisfação de clientes.</p>
+            </div>
+            
+            <!-- Feedback Form -->
+            <div class="feedback-form-container" id="feedback-form-block">
+                <!-- Loaded dynamically by JS -->
+            </div>
+            
+            <div class="feedbacks-grid" id="feedbacks-display-grid">
+                <!-- Loaded dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- ================= LOGIN / REGISTER VIEW ================= -->
+        <section id="view-login" class="page-view">
+            <div class="login-wrapper">
+                <div class="login-tabs">
+                    <button class="login-tab-btn active" id="btn-tab-login">Autenticar</button>
+                    <button class="login-tab-btn" id="btn-tab-register">Registrar</button>
+                </div>
+                
+                <!-- LOGIN FORM -->
+                <div class="login-form-box active" id="form-login-pane">
+                    <h2>Autenticação de Segurança</h2>
+                    <form id="email-login-form">
+                        <div class="form-group">
+                            <label for="login-email">Endereço de E-mail</label>
+                            <input type="email" id="login-email" placeholder="nome@exemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Senha Criptografada</label>
+                            <input type="password" id="login-password" placeholder="Digite sua senha de acesso" required>
+                        </div>
+                        <button type="submit" class="btn-submit-auth">Acessar Painel</button>
+                    </form>
+                    
+                    <div class="auth-divider"><span>ou conecte com</span></div>
+                    
+                    <div class="social-login-buttons">
+                        <button class="btn-social google" id="btn-google-login">
+                            <i class="fa-brands fa-google"></i> Google SSO
+                        </button>
+                        <button class="btn-social discord" id="btn-discord-login">
+                            <i class="fa-brands fa-discord"></i> Discord Auth
+                        </button>
+                    </div>
+                </div>
+
+                <!-- REGISTER FORM -->
+                <div class="login-form-box" id="form-register-pane">
+                    <h2>Registrar Nova Licença</h2>
+                    <form id="email-register-form">
+                        <div class="form-group">
+                            <label for="reg-username">Identificador (Username)</label>
+                            <input type="text" id="reg-username" placeholder="Ex: operador_gta" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">E-mail Corporativo</label>
+                            <input type="email" id="reg-email" placeholder="nome@exemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">Senha (Mínimo 6 caracteres)</label>
+                            <input type="password" id="reg-password" placeholder="Defina sua senha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password-confirm">Confirmar Senha</label>
+                            <input type="password" id="reg-password-confirm" placeholder="Confirme a senha definida" required>
+                        </div>
+                        <button type="submit" class="btn-submit-auth">Criar Conta</button>
+                    </form>
+                    
+                    <div class="auth-divider"><span>ou registrar com</span></div>
+                    
+                    <div class="social-login-buttons">
+                        <button class="btn-social google" id="btn-google-reg">
+                            <i class="fa-brands fa-google"></i> Google SSO
+                        </button>
+                        <button class="btn-social discord" id="btn-discord-reg">
+                            <i class="fa-brands fa-discord"></i> Discord Auth
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PARTNER TAB ================= -->
+        <section id="view-parceiro" class="page-view">
+            <div class="partner-container">
+                <div class="partner-info-pane">
+                    <h2><i class="fa-solid fa-network-wired"></i> Programa de Afiliação & Integração</h2>
+                    <p class="partner-subtitle">Divulgue nossa infraestrutura técnica de Account Recovery e receba comissões sobre transações aprovadas.</p>
+                    
+                    <ul class="partner-benefits">
+                        <li>
+                            <i class="fa-solid fa-percentage benefit-icon"></i>
+                            <div>
+                                <h4>Comissão de Transação</h4>
+                                <p>Receba 15% de comissão direta em todas as faturas geradas através de seu link de integrador.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-coins benefit-icon"></i>
+                            <div>
+                                <h4>Módulos de Testes Gratuitos</h4>
+                                <p>Cargas mensais em contas de desenvolvimento para testes e criação de material explicativo.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-bullhorn benefit-icon"></i>
+                            <div>
+                                <h4>Auditoria & Canal de Divulgação</h4>
+                                <p>Integramos suas redes no painel oficial do Discord, alcançando milhares de operadores ativos.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="partner-form-pane">
+                    <h3>Cadastro de Integrador</h3>
+                    <form id="partner-form">
+                        <div class="form-group">
+                            <label for="partner-name">Nome Completo</label>
+                            <input type="text" id="partner-name" placeholder="Ex: João Silva" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="partner-discord">Tag Discord Oficial</label>
+                            <input type="text" id="partner-discord" placeholder="Ex: joao_gta" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="partner-channel">Canal / Rede Principal (URL)</label>
+                            <input type="url" id="partner-channel" placeholder="Ex: https://youtube.com/c/seu-canal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="partner-msg">Resumo do Plano de Divulgação</label>
+                            <textarea id="partner-msg" rows="4" placeholder="Detalhes de audiência, alcance e propostas comerciais..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-partner">Enviar Proposta de Integração</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TERMS TAB ================= -->
+        <section id="view-termos" class="page-view">
+            <div class="tab-header-title">
+                <h2><i class="fa-solid fa-scale-balanced"></i> Acordo de Nível de Serviço (SLA) & Termos</h2>
+                <p>Termos de compromisso de entrega, políticas de integridade de dados e garantias de segurança.</p>
+            </div>
+            
+            <div class="terms-content">
+                <div class="terms-card">
+                    <h3>1. Protocolo de Entrega e Liberação</h3>
+                    <p>A implantação de injeções de ativos e modificações é realizada com suporte dedicado de engenharia de dados. O prazo regulamentar para conclusão e ativação das licenças em lote varia de 10 a 60 minutos contados do recebimento do webhook de transação aprovada. Contas prontas têm suas chaves de acesso criptografadas e despachadas para o e-mail cadastrado imediatamente após autorização.</p>
+                </div>
+
+                <div class="terms-card">
+                    <h3>2. Integridade e Segurança do Bypass</h3>
+                    <p>Empregamos metodologias avançadas e seguras contra varreduras externas das desenvolvedoras. Embora mitigados a taxas insignificantes, modificações locais e recovery de saldos dependem das regras ativas do servidor de destino. As compras qualificadas contam com garantia de restauração integral (SLA Re-Recovery) por 30 dias contra instabilidades regulatórias.</p>
+                </div>
+
+                <div class="terms-card">
+                    <h3>3. Acordo de Irrevogabilidade</h3>
+                    <p>Pela natureza imediata e digital de consumo das licenças e injeção direta de ativos nas credenciais fornecidas, todas as vendas são consideradas definitivas e não reembolsáveis uma vez concluído o tráfego de dados para a conta. O cancelamento unilateral e estorno é elegível estritamente antes do início operacional do recovery.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DISCORD TAB ================= -->
+        <section id="view-discord" class="page-view">
+            <div class="discord-container">
+                <div class="discord-card">
+                    <div class="discord-glow-ring"></div>
+                    <i class="fa-brands fa-discord discord-logo-large"></i>
+                    <h2>Conectar ao Servidor Central</h2>
+                    <p>Integre-se ao servidor central da LP Community. Monitore anúncios oficiais, participe de discussões técnicas de modding, assista demonstrações ao vivo e abra tickets diretos de auditoria e suporte prioritário com os gerentes de infraestrutura.</p>
+                    
+                    <div class="discord-status">
+                        <div class="status-item">
+                            <span class="dot online"></span>
+                            <strong>4,821</strong> Operando
+                        </div>
+                        <div class="status-item">
+                            <span class="dot total"></span>
+                            <strong>15,410</strong> Cadastrados
+                        </div>
+                    </div>
+                    
+                    <a href="https://discord.gg/lp-community" target="_blank" class="btn-join-discord">
+                        <i class="fa-brands fa-discord"></i> Conectar Agora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- EMAIL VERIFICATION MODAL -->
+    <div class="modal-overlay" id="email-verification-modal">
+        <div class="custom-modal">
+            <i class="fa-solid fa-envelope-open-text modal-icon-big"></i>
+            <h3>Verificação Cadastral</h3>
+            <p>Um código de confirmação de 4 dígitos foi gerado para o seu e-mail corporativo. Insira a chave de verificação para liberar sua licença de usuário.</p>
+            
+            <div class="code-inputs-wrapper">
+                <input type="text" maxlength="1" class="verify-code-input" data-idx="0">
+                <input type="text" maxlength="1" class="verify-code-input" data-idx="1" disabled>
+                <input type="text" maxlength="1" class="verify-code-input" data-idx="2" disabled>
+                <input type="text" maxlength="1" class="verify-code-input" data-idx="3" disabled>
+            </div>
+            
+            <p class="resend-text">Código simulado: <strong style="color: var(--primary)">1234</strong></p>
+            
+            <div class="modal-actions">
+                <button class="btn-modal-cancel" id="btn-cancel-verification">Cancelar</button>
+                <button class="btn-modal-confirm" id="btn-confirm-verification" disabled>Validar Licença</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PURCHASE CONFIRMATION MODAL -->
+    <div class="modal-overlay" id="purchase-modal">
+        <div class="custom-modal">
+            <i class="fa-solid fa-cart-arrow-down modal-icon-big"></i>
+            <h3>Confirmar Ordem</h3>
+            <p>Você está prestes a inicializar a aquisição do seguinte item de engenharia:</p>
+            
+            <div class="purchase-summary-box">
+                <div class="summary-line">
+                    <span class="summary-label">Módulo selecionado:</span>
+                    <span class="summary-value" id="summary-prod-name">-</span>
+                </div>
+                <div class="summary-line">
+                    <span class="summary-label">Custo total:</span>
+                    <span class="summary-value highlight-price" id="summary-prod-price">R$ 0,00</span>
+                </div>
+            </div>
+            
+            <p class="modal-warning-text"><i class="fa-solid fa-circle-exclamation"></i> Confirme os dados antes de prosseguir para o checkout seguro.</p>
+            
+            <div class="modal-actions">
+                <button class="btn-modal-cancel" id="btn-close-purchase-modal">Cancelar</button>
+                <button class="btn-modal-confirm" id="btn-confirm-purchase">Ir para Pagamento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAY GATEWAY SANDBOX MODAL ================= -->
+    <div class="modal-overlay" id="payment-gateway-modal">
+        <div class="payment-modal">
+            <div class="payment-header">
+                <div class="payment-title">
+                    <svg viewBox="0 0 100 100" width="24" height="24">
+                        <circle cx="50" cy="50" r="38" fill="#121417" stroke="#39ff14" stroke-width="4" />
+                        <path d="M 28,36 L 42,36 L 42,58 L 56,58 L 56,66 L 28,66 Z" fill="#39ff14" />
+                        <path d="M 45,36 L 68,36 Q 76,36 76,46 Q 76,56 68,56 L 55,56 L 55,66 L 45,66 Z M 55,42 L 55,50 L 66,50 Q 69,50 69,46 Q 69,42 66,42 Z" fill="#c5c6c7" />
+                    </svg>
+                    <span>LP PAY | Gateway de Checkout</span>
+                </div>
+                <div class="payment-badge-demo">AMBIENTE DE TESTE (SANDBOX)</div>
+            </div>
+            
+            <div class="payment-body" id="payment-main-body">
+                <!-- Method Selection (Left) -->
+                <div class="payment-sidebar">
+                    <button class="pay-method-btn active" id="pay-method-pix">
+                        <i class="fa-solid fa-pix"></i> PIX Automático
+                    </button>
+                    <button class="pay-method-btn" id="pay-method-card">
+                        <i class="fa-solid fa-credit-card"></i> Cartão de Crédito
+                    </button>
+                    
+                    <div class="payment-order-summary">
+                        <div class="order-label">Fatura:</div>
+                        <div class="order-item-name" id="pay-gate-prod-name">-</div>
+                        <div class="order-total" id="pay-gate-prod-price">R$ 0,00</div>
+                    </div>
+                </div>
+                
+                <!-- Forms Content (Right) -->
+                <div class="payment-content">
+                    
+                    <!-- PIX PANE -->
+                    <div class="pay-pane active" id="pay-pane-pix">
+                        <h4>Pagamento via PIX instantâneo</h4>
+                        <p class="pay-pane-desc">Escaneie o QR Code abaixo pelo aplicativo do seu banco ou utilize o código Copia e Cola para pagar.</p>
+                        
+                        <div class="pix-qr-code-box">
+                            <!-- Draw styled simulated QR code in vector SVG -->
+                            <svg class="pix-qr-svg" viewBox="0 0 100 100" width="130" height="130">
+                                <rect width="100" height="100" fill="#ffffff" />
+                                <!-- QR Corners -->
+                                <rect x="5" y="5" width="25" height="25" fill="#000000" />
+                                <rect x="10" y="10" width="15" height="15" fill="#ffffff" />
+                                <rect x="13" y="13" width="9" height="9" fill="#000000" />
+                                
+                                <rect x="70" y="5" width="25" height="25" fill="#000000" />
+                                <rect x="75" y="10" width="15" height="15" fill="#ffffff" />
+                                <rect x="78" y="13" width="9" height="9" fill="#000000" />
+                                
+                                <rect x="5" y="70" width="25" height="25" fill="#000000" />
+                                <rect x="10" y="75" width="15" height="15" fill="#ffffff" />
+                                <rect x="13" y="78" width="9" height="9" fill="#000000" />
+                                
+                                <!-- QR Center & Random Dots -->
+                                <rect x="40" y="40" width="20" height="20" fill="#39ff14" />
+                                <rect x="45" y="45" width="10" height="10" fill="#0b0c10" />
+                                
+                                <rect x="40" y="15" width="10" height="15" fill="#000000" />
+                                <rect x="55" y="5" width="5" height="15" fill="#000000" />
+                                <rect x="15" y="40" width="15" height="10" fill="#000000" />
+                                <rect x="5" y="55" width="10" height="5" fill="#000000" />
+                                <rect x="75" y="40" width="10" height="20" fill="#000000" />
+                                <rect x="40" y="75" width="20" height="10" fill="#000000" />
+                                <rect x="70" y="75" width="15" height="15" fill="#000000" />
+                            </svg>
+                        </div>
+                        
+                        <div class="pix-code-copier">
+                            <input type="text" id="pix-copy-input" value="00020126580014br.gov.bcb.pix0136lppay-community-gatewaysandbox05303986" readonly>
+                            <button id="btn-copy-pix"><i class="fa-solid fa-copy"></i> Copiar</button>
+                        </div>
+                        
+                        <div class="payment-status-message">
+                            <div class="status-spinner"></div>
+                            <span>Aguardando liquidação do Pix pela rede bancária...</span>
+                        </div>
+                        
+                        <!-- Sandbox bypass testing button -->
+                        <button class="btn-simulate-sandbox-pay" id="btn-simulate-pix-success">
+                            <i class="fa-solid fa-laptop-code"></i> Simular Confirmação Pix (Aprovar)
+                        </button>
+                    </div>
+                    
+                    <!-- CREDIT CARD PANE -->
+                    <div class="pay-pane" id="pay-pane-card">
+                        <h4>Pagamento via Cartão de Crédito</h4>
+                        <p class="pay-pane-desc">Preencha os campos abaixo com os dados cadastrais da licença para realizar a transação segura.</p>
+                        
+                        <form id="pay-card-form">
+                            <div class="form-group">
+                                <label for="card-num">Número do Cartão</label>
+                                <input type="text" id="card-num" placeholder="4000 1234 5678 9010" maxlength="19" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-name">Nome do Titular (Como impresso)</label>
+                                <input type="text" id="card-name" placeholder="JOAO O SILVA" required>
+                            </div>
+                            <div class="form-row-pay">
+                                <div class="form-group flex-1">
+                                    <label for="card-expiry">Validade</label>
+                                    <input type="text" id="card-expiry" placeholder="12/29" maxlength="5" required>
+                                </div>
+                                <div class="form-group flex-1">
+                                    <label for="card-cvv">CVV</label>
+                                    <input type="password" id="card-cvv" placeholder="123" maxlength="4" required>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-status-message card-loader-message" id="card-processing-loader" style="display:none;">
+                                <div class="status-spinner"></div>
+                                <span>Verificando saldo e criptografando dados SSL...</span>
+                            </div>
+                            
+                            <button type="submit" class="btn-authorize-card" id="btn-auth-card-submit">
+                                <i class="fa-solid fa-shield-halved"></i> Autorizar Faturamento
+                            </button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- SUCCESS VIEW (Appears inside modal after approval) -->
+            <div class="payment-success-box" id="payment-success-screen">
+                <i class="fa-solid fa-circle-check success-icon-large"></i>
+                <h3>Transação Aprovada!</h3>
+                <p>O faturamento do módulo de recovery foi processado e liquidado com sucesso pelo gateway sandbox da LP Pay.</p>
+                
+                <div class="receipt-box">
+                    <div class="receipt-row">
+                        <span>Código do Recibo:</span>
+                        <strong id="receipt-tx-id">#LP-000000</strong>
+                    </div>
+                    <div class="receipt-row">
+                        <span>Módulo:</span>
+                        <span id="receipt-prod-name">-</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span>Status da Rede:</span>
+                        <span style="color: var(--success); font-weight:700;"><i class="fa-solid fa-circle-nodes"></i> LIQUIDADO</span>
+                    </div>
+                </div>
+                
+                <p class="receipt-instructions-text">
+                    <i class="fa-solid fa-circle-info"></i> <strong>Instrução de Liberação</strong>: Abra o Ticket de Suporte no Discord e informe o <strong>Código do Recibo</strong> para despacharmos a injeção na sua conta.
+                </p>
+                
+                <div class="success-actions">
+                    <button class="btn-close-success" id="btn-close-pay-gateway">Voltar à Loja</button>
+                    <button class="btn-discord-success" id="btn-discord-pay-gateway">Abrir Ticket Suporte</button>
+                </div>
+            </div>
+            
+            <div class="payment-footer">
+                <div class="ssl-badge"><i class="fa-solid fa-lock"></i> Conexão Criptografada SSL 256-bit</div>
+                <button class="btn-payment-close-x" id="btn-cancel-pay-gateway">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIT DISCORD SIMULATION TOAST -->
+    <div class="audit-toast" id="discord-audit-toast">
+        <div class="toast-header">
+            <i class="fa-brands fa-discord toast-icon"></i>
+            <span>Discord Webhook Log</span>
+            <button class="toast-close" onclick="closeAuditToast()">&times;</button>
+        </div>
+        <div class="toast-body" id="discord-audit-content">
+            <!-- Simulated Discord Bot message -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 LP Modz. Todos os direitos reservados. Feito para a LP Community.</p>
+                <small>Este site não possui afiliação com a Rockstar Games, Take-Two Interactive ou Steam.</small>
+            </div>
+            <div class="footer-right">
+                <a href="#/termos">Termos de Uso</a>
+                <a href="https://discord.gg/lp-community" target="_blank"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
