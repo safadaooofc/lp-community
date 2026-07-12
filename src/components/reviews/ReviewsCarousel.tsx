@@ -124,7 +124,7 @@ export const ReviewsCarousel: React.FC = () => {
                           <CheckCircle2 size={12} className="text-lp-light" />
                         </h4>
                         <span className="text-[10px] text-gray-400 block mt-0.5">
-                          Comprado: <strong className="text-gray-300">{rev.productBought.replace('Módulo', 'Pacote')}</strong>
+                          Comprado: <strong className="text-gray-300">{rev.productBought}</strong>
                         </span>
                       </div>
                       <span className="text-[10px] text-gray-500">

@@ -7,9 +7,9 @@ export const reviewsData: Testimonial[] = [
     platform: 'PC',
     date: 'Ontem às 18:40',
     rating: 5,
-    comment: 'Comprei o Módulo Diamante e fiquei impressionado com o profissionalismo da equipe. Em menos de 12 minutos meu personagem já estava com $1 Bilhão, Rank 8000 e todos os itens liberados na Steam. Zero ban e suporte nota 10!',
+    comment: 'Comprei o Pacote Diamante e fiquei impressionado com o profissionalismo da equipe. Em poucos minutos meu personagem já estava com $1 Bilhão, Rank alto e tudo liberado na minha conta. Zero ban e suporte nota 10!',
     verifiedPurchase: true,
-    productBought: 'Módulo Diamante (Supremo LP)'
+    productBought: 'Pacote Diamante (Up Supremo LP)'
   },
   {
     id: 'rev-2',
@@ -17,7 +17,7 @@ export const reviewsData: Testimonial[] = [
     platform: 'PS5',
     date: '10/07/2026',
     rating: 5,
-    comment: 'Atendimento impecável no WhatsApp. Esclareceram todas as minhas dúvidas sobre a migração de conta e injeção de saldo. Comprei 500 Milhões e recebi tudo certinho e muito rápido. Recomendo de olhos fechados!',
+    comment: 'Atendimento impecável no Discord. Esclareceram todas as minhas dúvidas sobre o serviço de up na minha conta. Comprei 500 Milhões e recebi tudo certinho e muito rápido. Recomendo de olhos fechados!',
     verifiedPurchase: true,
     productBought: 'Pacote 500 Milhões de GTA$'
   },
@@ -27,9 +27,9 @@ export const reviewsData: Testimonial[] = [
     platform: 'PC',
     date: '08/07/2026',
     rating: 5,
-    comment: 'Os trajes modded e os carros com roda F1 são absurdamente lindos! Comprei o combo colecionador e meu personagem ficou em outro patamar. Segurança e qualidade acima de qualquer outra loja do mercado.',
+    comment: 'Os trajes raros e os carros são absurdamente lindos! Comprei o combo e meu personagem ficou em outro patamar. Segurança e qualidade acima de qualquer outra loja do mercado.',
     verifiedPurchase: true,
-    productBought: 'Combo Colecionador de Garagem Modded'
+    productBought: 'Combo Colecionador de Garagem'
   },
   {
     id: 'rev-4',
@@ -37,9 +37,9 @@ export const reviewsData: Testimonial[] = [
     platform: 'Xbox',
     date: '06/07/2026',
     rating: 5,
-    comment: 'Comprei o Módulo Ouro + Entrega Expressa. Fui atendido no Discord na mesma hora e o processo todo demorou 8 minutos. Empresa extremamente séria, consolidada e confiável.',
+    comment: 'Comprei o Pacote Ouro + Entrega Expressa. Fui atendido no Discord na mesma hora e o processo todo foi muito rápido. Empresa extremamente séria e confiável.',
     verifiedPurchase: true,
-    productBought: 'Módulo Ouro (Up Executivo)'
+    productBought: 'Pacote Ouro (Up Executivo)'
   },
   {
     id: 'rev-5',
@@ -47,8 +47,8 @@ export const reviewsData: Testimonial[] = [
     platform: 'PC',
     date: '04/07/2026',
     rating: 5,
-    comment: 'Já é a terceira vez que compro com a LP Community. Comprei a conta VIP Diamante para um amigo e veio completa com e-mail original sem nenhum vínculo prévio. Vale cada centavo investido.',
+    comment: 'Já é a terceira vez que compro com a LP Community. Fiz o up na minha conta principal e ficou sensacional. Vale cada centavo investido.',
     verifiedPurchase: true,
-    productBought: 'Conta GTA V Pronta - VIP Magnata'
+    productBought: 'Serviço de Up VIP Magnata'
   }
 ];

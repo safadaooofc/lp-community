@@ -5,30 +5,30 @@ export const ContactSection: React.FC = () => {
   const contactChannels = [
     {
       title: 'Comunidade no Discord',
-      description: 'Junte-se ao nosso servidor para ver feedbacks de entregas, abrir tickets de suporte e tirar dúvidas.',
-      actionText: 'Entrar no Discord',
+      description: 'Junte-se ao nosso servidor para ver milhares de feedbacks reais de clientes e promoções exclusivas.',
+      actionText: 'Entrar no Servidor',
       link: 'https://discord.gg',
       color: 'bg-indigo-600 hover:bg-indigo-700',
-      tag: 'Ticket VIP',
+      tag: 'Comunidade Oficial',
       icon: MessageSquare
     },
     {
-      title: 'Instagram Oficial',
-      description: 'Acompanhe nossos stories diários de entregas concluídas, atualizações e avisos importantes.',
-      actionText: 'Seguir no Instagram',
-      link: 'https://instagram.com',
-      color: 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700',
-      tag: 'Notícias',
-      icon: Sparkles
+      title: 'Suporte & Tickets VIP',
+      description: 'Abra um ticket de suporte privado com nossos atendentes no Discord para tirar dúvidas ou finalizar pedidos.',
+      actionText: 'Abrir Ticket no Discord',
+      link: 'https://discord.gg',
+      color: 'bg-lp-medium hover:bg-lp-dark',
+      tag: 'Atendimento Rápido',
+      icon: Headphones
     },
     {
-      title: 'E-mail Comercial',
-      description: 'Para propostas de parceria, dúvidas administrativas ou comerciais sobre sua evolução.',
-      actionText: 'Enviar E-mail',
-      link: 'mailto:contato@lpcommunity.com.br',
-      color: 'bg-gray-800 hover:bg-gray-950',
-      tag: 'Contato',
-      icon: Mail
+      title: 'Feedbacks & Entregas',
+      description: 'Canal dedicado no nosso Discord mostrando prints e avaliações de pedidos entregues todos os dias.',
+      actionText: 'Ver Feedbacks',
+      link: 'https://discord.gg',
+      color: 'bg-surface-hover hover:bg-surface-border text-white',
+      tag: 'Transparência',
+      icon: ExternalLink
     }
   ];
 

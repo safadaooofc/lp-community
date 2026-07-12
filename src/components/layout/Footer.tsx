@@ -146,23 +146,23 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="https://wa.me/5511999999999"
+                  href="https://discord.gg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between group px-3.5 py-2.5 rounded-xl bg-gray-900/80 hover:bg-lp-dark/30 border border-gray-800 hover:border-lp-dark/50 transition-all"
                 >
-                  <span className="font-medium text-gray-200 group-hover:text-white">Suporte WhatsApp</span>
+                  <span className="font-medium text-gray-200 group-hover:text-white">Servidor Discord</span>
                   <ArrowUpRight size={14} className="text-gray-500 group-hover:text-lp-light" />
                 </a>
               </li>
               <li>
                 <a
-                  href="https://instagram.com"
+                  href="https://discord.gg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between group px-3.5 py-2.5 rounded-xl bg-gray-900/80 hover:bg-lp-dark/30 border border-gray-800 hover:border-lp-dark/50 transition-all"
                 >
-                  <span className="font-medium text-gray-200 group-hover:text-white">Instagram Oficial</span>
+                  <span className="font-medium text-gray-200 group-hover:text-white">Suporte & Tickets VIP</span>
                   <ArrowUpRight size={14} className="text-gray-500 group-hover:text-lp-light" />
                 </a>
               </li>
