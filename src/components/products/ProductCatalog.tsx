@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { productsData, categoriesData } from '../../data/products';
+import { useAdminStore } from '../../services/adminStore';
 import { Product, CategoryId } from '../../types';
 import { ProductCard } from './ProductCard';
 import { Search, SlidersHorizontal, ArrowUpDown, X } from 'lucide-react';
@@ -21,10 +21,11 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   onAddToCart,
   onViewDetails
 }) => {
+  const { products, categories } = useAdminStore();
   const [sortBy, setSortBy] = useState<'relevance' | 'price-asc' | 'price-desc'>('relevance');
 
   const filteredProducts = useMemo(() => {
-    return productsData
+    return products
       .filter((product) => {
         if (activeCategory !== 'all' && product.category !== activeCategory) {
           return false;
@@ -79,10 +80,10 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                   : 'bg-surface-hover text-gray-300 hover:bg-surface-hover/80'
               }`}
             >
-              Todos ({productsData.length})
+              Todos ({products.length})
             </button>
 
-            {categoriesData.map((cat) => (
+            {categories.map((cat: any) => (
               <button
                 key={cat.id}
                 onClick={() => onSelectCategory(cat.id)}

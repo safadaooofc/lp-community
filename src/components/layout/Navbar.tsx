@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Search, ShieldCheck, Menu, X, LogIn, LogOut, Chrome } from 'lucide-react';
+import { ShoppingBag, Search, ShieldCheck, Menu, X, LogIn, LogOut, Chrome, Lock } from 'lucide-react';
 import { CategoryId } from '../../types';
 
 interface UserSession {
@@ -15,6 +15,7 @@ interface NavbarProps {
   onSelectCategory: (category: CategoryId | 'all') => void;
   theme?: 'dark' | 'light';
   onToggleTheme?: () => void;
+  onOpenAdmin?: () => void;
   user: UserSession | null;
   onLogin: (provider: 'discord' | 'google') => void;
   onLogout: () => void;
@@ -26,8 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   searchQuery,
   onSearchChange,
   onSelectCategory,
-  theme,
-  onToggleTheme,
+  onOpenAdmin,
   user,
   onLogin,
   onLogout
@@ -154,6 +154,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </button>
               )}
             </div>
+
+            {/* Botão Acesso Admin */}
+            <button
+              onClick={onOpenAdmin}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-hover hover:bg-lp-dark/50 text-gray-300 hover:text-lp-light border border-surface-border text-xs font-bold transition-all"
+              title="Acessar Painel Administrativo LP"
+            >
+              <Lock size={13} />
+              <span className="hidden lg:inline">Admin</span>
+            </button>
 
             {/* Login Panel */}
             {user ? (

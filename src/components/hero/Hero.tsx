@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useAdminStore } from '../../services/adminStore';
 import { ArrowRight, ShieldCheck, Zap, Sparkles, CheckCircle2, Clock } from 'lucide-react';
 
 interface HeroProps {
@@ -13,6 +14,7 @@ const backgroundSlides = [
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onShopNow, onViewProducts }) => {
+  const { config } = useAdminStore();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollY, setScrollY] = useState(0);
 
@@ -61,7 +63,7 @@ export const Hero: React.FC<HeroProps> = ({ onShopNow, onViewProducts }) => {
         {/* Selo de Confiança */}
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white/80 text-[10px] font-semibold mb-6 shadow-sm">
           <ShieldCheck size={13} className="text-lp-light" />
-          <span>Infraestrutura Profissional para Evolução de Contas</span>
+          <span>{config.hero.badge}</span>
         </div>
 
         {/* Título Forte e Menor */}
@@ -71,7 +73,7 @@ export const Hero: React.FC<HeroProps> = ({ onShopNow, onViewProducts }) => {
 
         {/* Subtítulo Otimizado */}
         <p className="mt-4 text-sm sm:text-base text-gray-300 max-w-xl mx-auto font-normal leading-relaxed">
-          A <strong className="text-white font-semibold">LP Community</strong> é a referência para injeção de saldo GTA$, progressão de nível e entrega de itens exclusivos. Suporte VIP pós-venda.
+          {config.hero.subtitle}
         </p>
 
         {/* Botões Menores */}
@@ -80,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ onShopNow, onViewProducts }) => {
             onClick={onShopNow}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-lp-dark to-lp-medium hover:from-lp-medium hover:to-lp-dark text-white font-bold text-sm shadow-premium transition-all transform hover:-translate-y-0.5"
           >
-            <span>Comprar Agora</span>
+            <span>{config.hero.primaryButtonText}</span>
             <ArrowRight size={15} />
           </button>
 
@@ -88,7 +90,7 @@ export const Hero: React.FC<HeroProps> = ({ onShopNow, onViewProducts }) => {
             onClick={onViewProducts}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-bold text-sm backdrop-blur-md border border-white/10 transition-all"
           >
-            <span>Ver Catálogo</span>
+            <span>{config.hero.secondaryButtonText}</span>
           </button>
         </div>
 

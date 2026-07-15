@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { reviewsData } from '../../data/reviews';
+import { useAdminStore } from '../../services/adminStore';
 import { Star, ChevronLeft, ChevronRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 export const ReviewsCarousel: React.FC = () => {
+  const { reviews } = useAdminStore();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [platformFilter, setPlatformFilter] = useState<'all' | 'PC' | 'PS5' | 'Xbox'>('all');
 
-  const filteredReviews = reviewsData.filter(
+  const filteredReviews = reviews.filter(
     rev => platformFilter === 'all' || rev.platform === platformFilter
   );
 
@@ -47,7 +48,7 @@ export const ReviewsCarousel: React.FC = () => {
                   : 'text-gray-400 hover:text-white'
               }`}
             >
-              Todos ({reviewsData.length})
+              Todos ({reviews.length})
             </button>
             <button
               onClick={() => { setPlatformFilter('PC'); setCurrentIndex(0); }}

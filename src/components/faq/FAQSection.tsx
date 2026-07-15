@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { faqData } from '../../data/faq';
+import { useAdminStore } from '../../services/adminStore';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 
 export const FAQSection: React.FC = () => {
+  const { faq } = useAdminStore();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
@@ -29,7 +30,7 @@ export const FAQSection: React.FC = () => {
 
         {/* Accordion */}
         <div className="space-y-3">
-          {faqData.map((item, index) => {
+          {faq.map((item, index) => {
             const isOpen = openIndex === index;
             return (
               <div

@@ -13,6 +13,9 @@ import { FAQSection } from './components/faq/FAQSection';
 import { ContactSection } from './components/contact/ContactSection';
 import { Footer } from './components/layout/Footer';
 import { CartDrawer } from './components/cart/CartDrawer';
+import { adminStore, useAdminStore } from './services/adminStore';
+import { AdminDashboard } from './components/admin/AdminDashboard';
+import { AdminLoginModal } from './components/admin/AdminLoginModal';
 import { CheckCircle2, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -53,6 +56,20 @@ export const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<CategoryId | 'all'>('all');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'store' | 'admin'>(() => {
+    return window.location.hash === '#admin' || window.location.search.includes('admin=true') ? 'admin' : 'store';
+  });
+  const [showAdminLoginModal, setShowAdminLoginModal] = useState(false);
+
+  const handleOpenAdmin = () => {
+    const session = adminStore.getSession();
+    if (session) {
+      setViewMode('admin');
+      window.location.hash = 'admin';
+    } else {
+      setShowAdminLoginModal(true);
+    }
+  };
 
   useEffect(() => {
     try {
@@ -156,6 +173,48 @@ export const App: React.FC = () => {
     setCartItems([]);
   };
 
+  if (viewMode === 'admin') {
+    return (
+      <>
+        <AdminDashboard
+          onReturnToStore={() => {
+            setViewMode('store');
+            window.location.hash = '';
+          }}
+          onLogout={() => {
+            adminStore.logout();
+            setViewMode('store');
+            window.location.hash = '';
+            showToast('Você saiu do Painel Administrativo.');
+          }}
+          onShowToast={showToast}
+        />
+        {/* Toast Notificação Admin */}
+        <AnimatePresence>
+          {toastMessage && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              className="fixed bottom-6 right-6 z-50 bg-[#060a08] border border-lp-medium text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3"
+            >
+              <div className="w-5 h-5 rounded-full bg-lp-light text-black flex items-center justify-center font-bold">
+                <CheckCircle2 size={12} />
+              </div>
+              <span className="text-xs font-semibold">{toastMessage}</span>
+              <button
+                onClick={() => setToastMessage(null)}
+                className="text-gray-400 hover:text-white p-0.5"
+              >
+                <X size={14} />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#000000] text-white">
       {/* Navegação Fixa */}
@@ -165,6 +224,7 @@ export const App: React.FC = () => {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         onSelectCategory={setActiveCategory}
+        onOpenAdmin={handleOpenAdmin}
         theme={theme}
         onToggleTheme={handleToggleTheme}
         user={user}
@@ -280,6 +340,18 @@ export const App: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Modal de Autenticação Admin */}
+      <AdminLoginModal
+        isOpen={showAdminLoginModal}
+        onClose={() => setShowAdminLoginModal(false)}
+        onSuccess={() => {
+          setShowAdminLoginModal(false);
+          setViewMode('admin');
+          window.location.hash = 'admin';
+          showToast('Autenticação de administrador bem-sucedida!');
+        }}
+      />
     </div>
   );
 };
